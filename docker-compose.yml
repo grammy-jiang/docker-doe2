@@ -1,0 +1,21 @@
+version: "3"
+services:
+  doe22:
+    build:
+      context: .
+      dockerfile: ./versions/ubuntu/dockerfile
+      args:
+        DOE22PASSWORD: $DOE22PASSWORD
+    container_name: dc-doe22
+    image: doe22:$DOE22VERSION
+    environment:
+      DISPLAY:
+    networks:
+      - doe22
+    tty: true
+    volumes:
+      - /home/grammy-jiang/PycharmProjects/docker-doe22/simple:/root/.wine/drive_c/simple
+
+networks:
+  doe22:
+    driver: bridge

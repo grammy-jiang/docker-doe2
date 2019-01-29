@@ -1,0 +1,29 @@
+FROM ubuntu:18.04 as builder
+
+ARG DOE22PASSWORD
+
+RUN apt-get update \
+ && apt-get install -y unzip
+
+COPY ./D22s48zr52n.zip /tmp
+
+RUN unzip -P $DOE22PASSWORD /tmp/D22s48zr52n.zip -d /tmp \
+ && mv /tmp/doe22/CommandLine/* /tmp/doe22/ \
+ && cat /tmp/doe22/EXE48z/eQ_Lib.365.dat >> /tmp/doe22/EXE48z/BDLLIB.DAT
+
+FROM ubuntu:18.04
+
+LABEL maintainer="grammy.jiang@gmail.com"
+
+RUN apt-get update \
+ && apt-get install -y wget gnupg2 software-properties-common \
+ && dpkg --add-architecture i386 \
+ && wget -nc https://dl.winehq.org/wine-builds/winehq.key \
+ && apt-key add winehq.key \
+ && apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main' \
+ && apt-get update \
+ && apt install -y --install-recommends winehq-stable
+
+RUN mkdir -p /root/.wine/drive_c/
+
+COPY --from=builder /tmp/doe22 /root/.wine/drive_c/doe22
