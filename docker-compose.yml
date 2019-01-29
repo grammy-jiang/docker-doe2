@@ -8,8 +8,6 @@ services:
         DOE22PASSWORD: $DOE22PASSWORD
     container_name: dc-doe22
     image: doe22:$DOE22VERSION
-    environment:
-      DISPLAY:
     networks:
       - doe22
     tty: true
