@@ -3,7 +3,7 @@ services:
   doe22:
     build:
       context: .
-      dockerfile: ./versions/ubuntu/dockerfile
+      dockerfile: ./versions/python/dockerfile
       args:
         DOE22PASSWORD: $DOE22PASSWORD
     container_name: dc-doe22
