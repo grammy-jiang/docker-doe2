@@ -1,0 +1,38 @@
+FROM python:latest as builder
+
+ARG DOE22PASSWORD
+
+RUN apt-get update \
+ && apt-get install -y unzip wget
+
+RUN wget -nv -nc http://www.doe2.com/download/DOE-22/D22s48zr52n.zip
+
+RUN unzip -P $DOE22PASSWORD D22s48zr52n.zip -d /tmp \
+ && mv /tmp/doe22/CommandLine/* /tmp/doe22/ \
+ && cat /tmp/doe22/EXE48z/eQ_Lib.365.dat >> /tmp/doe22/EXE48z/BDLLIB.DAT
+
+RUN wget -nc https://dl.winehq.org/wine-builds/winehq.key
+
+FROM python:latest
+
+LABEL maintainer="grammy.jiang@gmail.com"
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update \
+ && apt-get install -y software-properties-common apt-transport-https gnupg2
+
+COPY --from=builder winehq.key winehq.key
+
+RUN dpkg --add-architecture i386 \
+ && apt-key add winehq.key \
+ && rm winehq.key \
+ && apt-add-repository 'deb https://dl.winehq.org/wine-builds/debian/ stretch main' \
+ && apt-get update \
+ && apt-get install -y --install-recommends winehq-stable \
+ && apt-get autoremove \
+ && apt-get autoclean
+
+RUN mkdir -p /root/.wine/drive_c/
+
+COPY --from=builder /tmp/doe22 /root/.wine/drive_c/doe22
