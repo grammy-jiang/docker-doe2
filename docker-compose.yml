@@ -2,12 +2,12 @@ version: "3"
 services:
   doe22:
     build:
-      context: .
-      dockerfile: ./versions/python/dockerfile
+      context: ./versions/python
+      dockerfile: ./dockerfile
       args:
         DOE22PASSWORD: $DOE22PASSWORD
     container_name: dc-doe22
-    image: doe22:$DOE22VERSION
+    image: grammyjiang/doe2:$DOE22VERSION
     networks:
       - doe22
     tty: true
