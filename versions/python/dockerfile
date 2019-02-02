@@ -44,3 +44,8 @@ RUN wine msiexec /i c:/wine_gecko-2.47-x86_64.msi \
  && rm /root/.wine/drive_c/wine_gecko-2.47-x86_64.msi
 
 COPY --from=builder /tmp/doe22 /root/.wine/drive_c/doe22
+
+COPY ./versions/python/entrypoint.sh /usr/local/bin
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+ENTRYPOINT ["entrypoint.sh"]
