@@ -12,7 +12,7 @@ services:
       - doe22
     tty: true
     volumes:
-      - /home/grammy-jiang/PycharmProjects/docker-doe22/simple:/root/.wine/drive_c/simple
+      - /home/grammy-jiang/PycharmProjects/docker-doe22/sample:/root/.wine/drive_c/sample
 
 networks:
   doe22:
