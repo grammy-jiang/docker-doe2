@@ -9,7 +9,7 @@ the image.
 
 Run command:
 ```bash
-docker build --tag doe22:s48zr52n --file versions/ubuntu/dockerfile --build-arg DOE22PASSWORD=password .
+docker build --build-arg DOE22PASSWORD=password --file versions/ubuntu/dockerfile --tag <your name>/doe2:<doe2 version> .
 ```
 
 ### Creata the image from docker-compose
