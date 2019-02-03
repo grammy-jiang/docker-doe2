@@ -9,7 +9,11 @@ the image.
 
 Run command:
 ```bash
-docker build --build-arg DOE22PASSWORD=password --file versions/ubuntu/dockerfile --tag <your name>/doe2:<doe2 version> .
+docker build \
+  --build-arg DOE22PASSWORD=password \
+  --file versions/ubuntu/dockerfile \
+  --tag <your name>/doe2:<doe2 version> \
+  .
 ```
 
 ### Creata the image from docker-compose
@@ -26,9 +30,9 @@ Run command:
 docker run \
     -it \
     --rm \
-    --volume "/home/grammy-jiang/PycharmProjects/docker-doe2/simple:/root/.wine/drive_c/simple" \
-    doe22:s48zr52n \
-    wine cmd /c c:/doe22/doe22 exe48z c:/simple/simple chicagil
+    --volume "/home/grammy-jiang/PycharmProjects/docker-doe2/sample:/root/.wine/drive_c/sample" \
+    <your name>/doe2:<doe2 version> \
+    wine cmd /c c:/doe22/doe22 exe48z c:/sample/sample chicagil
 ```
 where:
 
