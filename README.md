@@ -10,7 +10,7 @@ the image.
 Run command:
 ```bash
 docker build \
-  --build-arg DOE22PASSWORD=password \
+  --build-arg DOE22PASSWORD=<password> \
   --file versions/ubuntu/dockerfile \
   --tag <your name>/doe2:<doe2 version> \
   .
