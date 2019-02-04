@@ -37,9 +37,9 @@ docker run \
 where:
 
 > -it: it is necessary, even there is no interactive
-
+>
 > --volume: the path of the project, mount it to `/root/.wine/drive_c/sample` to make it avaialbe in wine
-
+>
 > wine: running the batch file with `cmd.exe`
-
+>
 > doe22: `c:/doe22/doe22` is the batch file of `doe22.bat`, `exe48z` is the version of `doe22`, `c:/simple/simple` is the path of inp file (without `inp` postfix), `chicagil` is the weather file which located in `c:/doe22/weather`
