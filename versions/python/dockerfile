@@ -28,6 +28,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
  && apt-get install -y software-properties-common apt-transport-https gnupg2
 
+RUN pip install doe2-sim-parser
+
 COPY --from=builder winehq.key winehq.key
 
 RUN dpkg --add-architecture i386 \
