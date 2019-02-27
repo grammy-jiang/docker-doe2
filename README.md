@@ -29,7 +29,7 @@ Run command:
 ```bash
 docker run \
     -it \
-    --rm \
+    --rm \a
     --volume "/home/grammy-jiang/PycharmProjects/docker-doe2/sample:/root/.wine/drive_c/sample" \
     <your name>/doe2:<doe2 version> \
     wine cmd /c c:/doe22/doe22 exe48z c:/sample/sample chicagil
@@ -38,7 +38,7 @@ where:
 
 > -it: it is necessary, even there is no interactive
 >
-> --volume: the path of the project, mount it to `/root/.wine/drive_c/sample` to make it avaialbe in wine
+> --volume: the path of the project, mount it to `/root/.wine/drive_c/sample` to make it available in wine
 >
 > wine: running the batch file with `cmd.exe`
 >
