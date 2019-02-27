@@ -31,7 +31,7 @@ docker run \
     -it \
     --rm \a
     --volume "<model>:/root/.wine/drive_c/sample" \
-    <your name>/doe2:<doe2 version> \
+    <docker image> \  # example: grammy-jiang/doe2:exe48z
     wine cmd /c c:/doe22/doe22 exe48z c:/sample/sample chicagil
 ```
 where:
