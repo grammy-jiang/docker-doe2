@@ -30,7 +30,7 @@ Run command:
 docker run \
     -it \
     --rm \a
-    --volume "/home/grammy-jiang/PycharmProjects/docker-doe2/sample:/root/.wine/drive_c/sample" \
+    --volume "<model>:/root/.wine/drive_c/sample" \
     <your name>/doe2:<doe2 version> \
     wine cmd /c c:/doe22/doe22 exe48z c:/sample/sample chicagil
 ```
