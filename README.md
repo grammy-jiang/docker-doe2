@@ -1,5 +1,7 @@
 # Docker for DOE2
 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+   
 This repository provides the dockerfile for DOE2 and a docker-compose to build
 the image.
 
